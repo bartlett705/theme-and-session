@@ -3,10 +3,14 @@ import { Toggleable } from '../toggleable'
 import { SettingsMenu } from './settings-menu'
 
 export const TopNav: React.SFC = () => (
-    <ToggleableMenu
-        content={<SettingsMenu />}
-        title="Settings"
-    />
+    <div className="top-nav">
+        <div className="top-nav-contents">
+            <ToggleableMenu
+                content={<SettingsMenu />}
+                title="⚙"
+            />
+        </div>
+    </div>
 )
 
 const ToggleableMenu = (
@@ -16,7 +20,7 @@ const ToggleableMenu = (
         <div className="balloon-menu">
             <Toggleable content={content}>
                 {(toggled, onToggle) => (
-                    <button onClick={onToggle} >
+                    <button className={`toggleable_button--${toggled ? 'on' : 'off'}`} onClick={onToggle} >
                         <div className={`toggleable_title--${toggled ? 'on' : 'off'}`}>
                             {title}
                         </div>

@@ -1,8 +1,12 @@
+body {
+    margin: 0;
+}
+
 #root {
     background-color: #181818;
     color: #fafafa;
-    font-family: 'Spectral SC', serif;
     display: flex;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -22,6 +26,10 @@
         color: whitesmoke
     }
 
+    h1, h2, h3, h4, h5 {
+        font-family: 'Spectral SC', serif;        
+    }
+
     button {
         border-radius: 3px;
         background-color: salmon;
@@ -39,32 +47,65 @@
         color: salmon;
     }
 
-    .top-nav {
-        position: sticky;
-    }
-
-    .balloon-content {
-        position: absolute;
-        background-color: whitesmoke;
-        padding: 0.5rem;
-    }
-
+    
     .balloon-menu {
-        .toggleable_title--off, .toggleable_title--on {
-            display: flex;
-            justify-content: start;
+        position: fixed;
+        -webkit-box-shadow: -2px 2px 0px 0px rgba(120,120,120,1);
+        -moz-box-shadow: -2px 2px 0px 0px rgba(120,120,120,1);
+        box-shadow: -2px 2px 0px 0px rgba(120,120,120,1);
+        
+        button.toggleable_button--on {
+            border-bottom: 1px dashed;
         }
 
-        .toggleable_title--off::before {
+        .balloon-content {
+            white-space: nowrap;
+            position: absolute;
+            right: 0;
+            background-color: darkorange;
+            padding: 0.5rem;
+            -webkit-box-shadow: -2px 2px 0px 0px rgba(120,120,120,1);
+            -moz-box-shadow: -2px 2px 0px 0px rgba(120,120,120,1);
+            box-shadow: -2px 2px 0px 0px rgba(120,120,120,1);
+        }
+
+        .toggleable_title--off, .toggleable_title--on {
+            display: flex;
+            justify-content: space-evenly;
+            // padding-right: 0.5rem;
+        }
+
+        .toggleable_title--on::after {
+            content: '-';
+            padding-left: 0.25rem;
+            width: 0.5rem;            
+        }
+
+        .toggleable_title--off::after {
             content: '+';
-            padding-right: 0.25rem;
+            padding-left: 0.25rem;
             width: 0.5rem;
         }
 
-        .toggleable_title--on::before {
+        .toggleable_title--on::after {
             content: '-';
-            padding-right: 0.25rem;
+            padding-left: 0.25rem;
             width: 0.5rem;            
         }
+    }
+
+    .top-nav {
+        width: 100%;
+
+        button {
+            border-radius: unset;
+            background-color: darkorange;
+            font-size: 16px;
+        }
+    }
+
+    .top-nav-contents {
+        display: flex;
+        justify-content: flex-end;
     }
 }

@@ -6,11 +6,12 @@ import { setTheme as setPersistentTheme, Theme } from '../../utils/theme'
 
 export const SettingsMenu: React.SFC = () => (
     <Balloon>
+        Theme:&nbsp;
         <Subscribe to={[ThemeContainer]} >
-            {(theme) => (
+            {(theme: ThemeContainer) => (
                 <select
                   defaultValue={theme.state.theme}
-                  onChange={(e) => theme.setState({ theme: e.currentTarget.value })}
+                  onChange={(e) => theme.setTheme(e.currentTarget.value)}
                 >
                     <option value={Theme.Light}>Light</option>
                     <option value={Theme.Dark}>Dark</option>
